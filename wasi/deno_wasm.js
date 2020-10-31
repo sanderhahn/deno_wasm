@@ -639,11 +639,26 @@ const context = new Context({
 });
 
 const file = new URL(import.meta.url).pathname;
-console.log(file);
 const wasmFile = file.substring(0, file.lastIndexOf(Deno.build.os === 'windows' ? '\\' : '/') + 1) + 'deno_wasm_bg.wasm';
 const wasmModule = new WebAssembly.Module(Deno.readFileSync(wasmFile));
-const wasmInstance = new WebAssembly.Instance(wasmModule, {
-  ...imports,
-  "wasi_snapshot_preview1": context.exports,
-});
+imports.wasi_snapshot_preview1 = context.exports;
+const wasmInstance = new WebAssembly.Instance(wasmModule, imports);
 const wasm = wasmInstance.exports;
+
+const {
+  _start: start,
+  _initialize: initialize,
+  memory,
+} = wasmInstance.exports;
+
+context.memory = memory; // as WebAssembly.Memory;
+
+if (start instanceof Function) {
+  start();
+} else if (initialize instanceof Function) {
+  initialize();
+} else {
+  throw new Error(
+    "No '_start' or '_initialize' entry point found in WebAssembly module, make sure to compile with wasm32-wasi as the target.",
+  );
+}
