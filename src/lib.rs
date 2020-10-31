@@ -1,3 +1,5 @@
+mod common;
+
 use wasm_bindgen::prelude::*;
 use common::process;
 
