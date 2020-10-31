@@ -1,5 +1,4 @@
 /target
 /pkg
+/wasi
 Cargo.lock
-/wasi/*.wasm
-/wasi/*.ts
