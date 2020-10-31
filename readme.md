@@ -86,3 +86,5 @@ rustup target add wasm32-wasi
 - [wasmtime WASI-tutorial](https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-tutorial.md)
 - [Deno WebAssembly](https://deno.land/manual/getting_started/webassembly)
 - [Deno wasi](https://deno.land/std@0.76.0/wasi/README.md)
+
+- [wasm-bindgen: add deno target #2176](https://github.com/rustwasm/wasm-bindgen/pull/2176/files)

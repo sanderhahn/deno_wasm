@@ -9,14 +9,15 @@ run: build
 test: build
 	CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_RUNNER=~/.cargo/bin/wasm-bindgen-test-runner cargo test --target wasm32-unknown-unknown
 
-wasi_build: src/bin.rs
-	cargo build --target wasm32-wasi
-	wasm-bindgen --target deno --out-dir pkg ./target/wasm32-wasi/debug/deno_wasm.wasm
-	cp pkg/*.ts wasi
-	cp pkg/*.wasm wasi
+wasi_build:
+	# https://bytecodealliance.github.io/cargo-wasi/wasm-bindgen.html
+	# due to a bug in wasm-bindgen, it is currently necessary to build in release mode
+	# cargo wasi build --release
+	cargo build --target wasm32-wasi --release
+	wasm-bindgen --target deno --out-dir wasi ./target/wasm32-wasi/debug/deno_wasm.wasm
 
 wasi_run: wasi_build
-	deno run --allow-read --allow-env --unstable deno_wasi.ts
+	deno run --allow-read --allow-env --unstable --importmap=./import_map.json deno_wasi.ts
 
 wasmtime_run: wasi_build
 	echo "Hello world" >test.txt
