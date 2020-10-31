@@ -16,7 +16,7 @@ wasi_build: src/bin.rs
 	cp pkg/*.wasm wasi
 
 wasi_run: wasi_build
-	deno run --allow-read --allow-env --unstable deno.ts
+	deno run --allow-read --allow-env --unstable deno_wasi.ts
 
 wasmtime_run: wasi_build
 	echo "Hello world" >test.txt
