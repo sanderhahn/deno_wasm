@@ -4,7 +4,7 @@ build: src/lib.rs
 	wasm-bindgen --target deno --out-dir pkg ./target/wasm32-unknown-unknown/debug/deno_wasm.wasm
 
 run: build
-	deno run --allow-read deno.ts
+	deno run --allow-read --unstable deno.ts
 
 test: build
 	CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_RUNNER=~/.cargo/bin/wasm-bindgen-test-runner cargo test --target wasm32-unknown-unknown
