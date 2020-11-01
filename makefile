@@ -15,6 +15,7 @@ wasi_build:
 	# cargo wasi build --release
 	cargo build --target wasm32-wasi --release
 	wasm-bindgen --target deno --out-dir wasi ./target/wasm32-wasi/debug/deno_wasm.wasm
+	deno run --allow-write --unstable snapshot_preview1_generate.ts
 
 wasi_run: wasi_build
 	deno run --allow-read --allow-env --unstable --importmap=./import_map.json deno_wasi.ts
