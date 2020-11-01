@@ -54,7 +54,22 @@ export const random_get = exports.random_get;
 export const sock_recv = exports.sock_recv;
 export const sock_send = exports.sock_send;
 export const sock_shutdown = exports.sock_shutdown;
-export function init(memory) {
+export function init({
+  _start,
+  _initialize,
+  memory,
+}) {
   console.log("using memory", memory);
   context.memory = memory;
+  if (_start instanceof Function) {
+    _start();
+    console.log("_start");
+  } else if (_initialize instanceof Function) {
+    _initialize();
+    console.log("_initialize");
+  } else {
+    throw new Error(
+      "No '_start' or '_initialize' entry point found in WebAssembly module, make sure to compile with wasm32-wasi as the target.",
+    );
+  }
 }
