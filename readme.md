@@ -89,3 +89,4 @@ rustup target add wasm32-wasi
 
 - [wasm-bindgen: add deno target #2176](https://github.com/rustwasm/wasm-bindgen/pull/2176/files)
 - [failed to find a pre-opened file descriptor through which "test.txt" could be opened](https://github.com/rust-lang/rust/blob/master/library/std/src/sys/wasi/fs.rs#L635)
+- [Adding experimental WebAssembly support to Decaton – Part 2](https://engineering.linecorp.com/en/blog/adding-experimental-webassembly-support-to-decaton-part-2/)
