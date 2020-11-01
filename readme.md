@@ -88,3 +88,4 @@ rustup target add wasm32-wasi
 - [Deno wasi](https://deno.land/std@0.76.0/wasi/README.md)
 
 - [wasm-bindgen: add deno target #2176](https://github.com/rustwasm/wasm-bindgen/pull/2176/files)
+- [failed to find a pre-opened file descriptor through which "test.txt" could be opened](https://github.com/rust-lang/rust/blob/master/library/std/src/sys/wasi/fs.rs#L635)
