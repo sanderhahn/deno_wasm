@@ -21,6 +21,20 @@ pub fn process_js(input_fname: &str, output_fname: &str) -> Result<(), JsValue> 
     }
 }
 
+#[wasm_bindgen]
+pub fn args() -> String {
+    let args: Vec<String> = std::env::args().collect();
+    let result = args.join(", ");
+    dbg!(&result);
+    result
+}
+
+#[wasm_bindgen]
+pub fn envs() -> String {
+    let vars: Vec<String> = std::env::vars().map(|(key, value)| { format!("{} = {}", key, value) }).collect();
+    vars.join("\n")
+}
+
 use wasm_bindgen_test::*;
 
 #[wasm_bindgen_test]
