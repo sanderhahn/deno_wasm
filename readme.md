@@ -2,9 +2,9 @@
 
 Three examples using WebAssembly with Deno:
 
-- [wasmbingen/mylib](wasmbingen/mylib/readme.md)
-- [wasi/mybin](wasi/mybin/readme.md)
-- [wasi-wasmbingen/mybin](wasi-wasmbingen/mybin/readme.md)
+- [wasmbindgen/mylib](examples/wasmbindgen/mylib)
+- [wasi/mybin](examples/wasi/mybin)
+- [wasi-wasmbingen/mybin](examples/wasi-wasmbingen/mybin)
 
 ## References
 
