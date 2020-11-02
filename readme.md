@@ -4,7 +4,7 @@ Three examples using WebAssembly with Deno:
 
 - [wasmbindgen/mylib](examples/wasmbindgen/mylib)
 - [wasi/mybin](examples/wasi/mybin)
-- [wasi-wasmbingen/mybin](examples/wasi-wasmbingen/mybin)
+- [wasi-wasmbindgen/mybin](examples/wasi-wasmbindgen/mybin)
 
 ## References
 

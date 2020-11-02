@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "wasi_snapshot_preview1": "./pkg/snapshot_preview1.js"
+  }
+}

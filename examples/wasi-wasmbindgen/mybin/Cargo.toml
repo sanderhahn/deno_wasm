@@ -1,0 +1,12 @@
+[package]
+name = "mybin"
+version = "0.1.0"
+authors = ["Sander Hahn <sanderhahn@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+js-sys = "0.3.45"
+wasm-bindgen = "0.2.68"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.18"
