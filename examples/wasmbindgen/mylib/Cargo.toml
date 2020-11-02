@@ -1,5 +1,5 @@
 [package]
-name = "deno_wasm"
+name = "mylib"
 version = "0.1.0"
 authors = ["Sander Hahn <sanderhahn@gmail.com>"]
 edition = "2018"
@@ -7,12 +7,9 @@ edition = "2018"
 [lib]
 crate-type = ["cdylib"]
 
-[[bin]]
-name = "wasi_bin"
-path = "src/bin.rs"
-
 [dependencies]
-wasm-bindgen = "0.2.68"
 js-sys = "0.3.45"
+wasm-bindgen = "0.2.68"
+
+[dev-dependencies]
 wasm-bindgen-test = "0.3.18"
-wasi = "0.10.0"

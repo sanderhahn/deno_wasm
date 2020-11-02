@@ -1,3 +1,4 @@
+use std::env;
 use std::fs;
 use std::io::{Read, Write};
 
@@ -14,4 +15,20 @@ pub fn process(input_fname: &str, output_fname: &str) -> Result<(), String> {
     output_file
         .write_all(&contents)
         .map_err(|err| format!("write error: {}", err))
+}
+
+fn main() {
+    let args: Vec<String> = env::args().collect();
+    let program = args[0].clone();
+
+    println!("running main with {:?}", args);
+
+    if args.len() < 3 {
+        eprintln!("{} <input_file> <output_file>", program);
+        return;
+    }
+
+    if let Err(err) = process(&args[1], &args[2]) {
+        eprintln!("{}", err)
+    }
 }

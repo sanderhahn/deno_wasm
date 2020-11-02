@@ -1,5 +1,0 @@
-{
-  "imports": {
-     "wasi_snapshot_preview1": "./snapshot_preview1.js"
-  }
-}
