@@ -41,5 +41,8 @@ init(wasm);
 if (Deno.args[0]) {
   const wrapper = Deno.args[0];
   const wasm = Deno.readTextFileSync(wrapper);
-  Deno.writeTextFileSync(wrapper, wasm.replace("wasm.__wbindgen_start();", init));
+  Deno.writeTextFileSync(
+    wrapper,
+    wasm.replace("wasm.__wbindgen_start();", init),
+  );
 }
