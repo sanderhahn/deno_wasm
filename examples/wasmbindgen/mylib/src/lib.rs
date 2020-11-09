@@ -1,14 +1,14 @@
 use wasm_bindgen::prelude::*;
 
-#[wasm_bindgen]
+#[wasm_bindgen(js_name = "helloWorld")]
 pub fn hello_world() -> String {
-  "Hello World!".to_string()
+    "Hello World!".to_string()
 }
 
 #[cfg(test)]
 mod tests {
-    use wasm_bindgen_test::*;
     use crate::hello_world;
+    use wasm_bindgen_test::*;
 
     #[wasm_bindgen_test]
     fn test_hello_world() {

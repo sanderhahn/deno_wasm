@@ -1,11 +1,11 @@
-import Context from "https://deno.land/std@0.76.0/wasi/snapshot_preview1.ts";
+import Context from "https://deno.land/std/wasi/snapshot_preview1.ts";
 const context = new Context({});
 const exports = Object.keys(context.exports).map((key) => {
   return `export const ${key} = exports.${key}`;
 });
 
 const code = `
-import Context from "https://deno.land/std@0.76.0/wasi/snapshot_preview1.ts";
+import Context from "https://deno.land/std/wasi/snapshot_preview1.ts";
 const context = new Context({
   args: ["[PLACEHOLDER]", ...Deno.args],
   env: Deno.env.toObject(),

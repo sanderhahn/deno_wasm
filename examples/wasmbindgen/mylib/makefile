@@ -7,7 +7,11 @@ run: build
 
 test: build
 	CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_RUNNER=~/.cargo/bin/wasm-bindgen-test-runner cargo test --target wasm32-unknown-unknown
+	deno test --allow-read
 
 setup:
 	rustup target add wasm32-unknown-unknown
 	cargo install wasm-bindgen-cli --version 0.2.68
+
+clean:
+	rm -Rf target pkg
