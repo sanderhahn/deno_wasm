@@ -29,3 +29,4 @@ Run the same binary using `wasmtime`.
 
 - [wasmtime](https://wasmtime.dev/)
 - [https://bytecodealliance.github.io/cargo-wasi/](https://bytecodealliance.github.io/cargo-wasi/cli-usage.html)
+- [WASI Application ABI](https://github.com/WebAssembly/WASI/blob/master/design/application-abi.md)

@@ -16,25 +16,16 @@ const context = new Context({
 });
 const exports = context.exports;
 ${exports.join(";\n")};
-export function init({
-  _start,
-  memory,
-}) {
-  context.memory = memory;
-  if (_start instanceof Function) {
-    _start();
-  } else {
-    throw new Error(
-      "No '_start' entry point found in WebAssembly module, make sure to compile with wasm32-wasi as the target.",
-    );
-  }
+export function init(instance) {
+  // context.memory = memory;
+  context.start(instance);
 }
 `;
 Deno.writeTextFileSync("./pkg/snapshot_preview1.js", code);
 
 const init = `
 import { init } from 'wasi_snapshot_preview1';
-init(wasm);
+init(wasmInstance);
 // wasm.__wbindgen_start();
 `;
 
