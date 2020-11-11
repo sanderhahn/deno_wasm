@@ -1,7 +1,7 @@
 <script type="module">
-  import * as weblib from "./pkg/weblib.js";
+  import init from "./pkg/weblib.js";
   (async () => {
-    const { hello_console } = await weblib.default();
-    hello_console();
+    const { helloConsole } = await init();
+    helloConsole();
   })();
 </script>
